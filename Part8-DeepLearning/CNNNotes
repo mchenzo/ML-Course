@@ -1,0 +1,40 @@
+Convolutional Neural Networks:
+
+Convolution:
+	- Convolution function: f(g(t)) = ∫ from -∞ to ∞ of f(†)g(t - †)d†
+	- Feature Detector (filter, kernel)
+	- cover input image with feature detector, multiply overlapping elements and sum
+	- step rate (1px i.e.) is called the stride, larger stride = reduce image even more
+	- obtain a feature map (convolved feature)
+	- a feature detector has a certain pattern on it, highest values occur where a matching feature occurs
+
+	--> use many feature detector to create numerous maps\
+
+ReLU Layer:
+	- apply rectifier function to the feature maps to amplify nonlinearity;
+	- i.e. black and white feature maps, black = negative, black is removed by rectifier
+
+Max Pooling (Downsampling):
+	- spacial invariance: we want the network to have flexibility (be able to find features in different angles etc.)
+	- using a box and a stride of i.e. 2, find the max value inside the box at each location
+	- translate to a new, "pooled" feature map
+	- removes a level of detail, prevents overfitting
+
+Flattening:
+	- convert rows into a single column, column becomes input layer for ANN
+
+Full Connection
+	- flattened feature map passed through ANN, output error analysis is back propagated
+	- weights and feature detectors are adjusted
+	- during classification, each output neuron learns which hidden neurons are its indicators
+
+Softmax:
+	- function that squashes the classification vector such that the values sum to 1
+	- 
+
+Cross-Entropy:
+	- 
+
+
+
+Reading: Evaluation of Pooling Operations in Convolutional Architectures for Object Recognition

@@ -1,0 +1,56 @@
+Activation Functions:
+	- Threshold function: if x > 0, f(x) = 1 it's like a step function u(t)
+	- Sigmoid function: 
+	- Rectifier function:
+	- Hyperbolic Tangent function: resembles reduction/oxidation current graph
+
+	--> if your variable is binary, you can use the threshold function or the sigmoid function 
+	--> an activation function determines whether or not the neuron "fires", and how strong the signal is
+
+
+How Do Neural Networks Work?
+	- Input Layer: independent variables. each input neuron is weighted
+	- Hidden Layer: each hidden layer neuron has connections w connected input neurons, i.e. distance to city and area of house
+	- Output Layer: 
+
+
+How Do Neural Networks Learn? 
+--> 1 Data Row
+	- perceptron compares calculated value to actual value, calculates error
+	- the error is passed back through the perception and the weights at the inputs are tweaked
+	- this process repeats for the individual perceptron, cost function is minimized
+--> Multiple Data Rows
+	- network determines a value for each data row
+	- cost function is determined for entire data set: sum of all individual data row cost functions
+	- cycle repeats with entire network, cost function is minimized
+
+
+Gradient Descent:
+	- How input weights are adjusted
+	- Brute force; try a ton of weights and pick the minimal cost function
+	- ^ Not practical for complex networks with multiple hidden layers 
+	- The derivative of the cost function at the test point indicates which direction the mimimum is in
+	- 
+
+
+Stochastic Gradient Descent:
+	- What if gradient descent yields a local minimum?
+	- Adjust weights after each individual data row, as opposed to after all data rows have been tested
+	- Faster than gradient descent method, more likely to find global minima
+
+
+BackPropagation:
+	- error is sent backwards through the network to adjust weights
+	- allows all weights to be adjusted simultaneously
+
+
+Neural Network Training Flow:
+	- weights are randomly initialized to small numbers
+	- run first observation through input layer
+	- forward propagation: importance of each neuron's activation is determined by the weight
+	- cost function error determination
+	- backwards propagation, update weights according to how much they contributed to the error
+	- learning rate = how much we update the weights
+	- cycle through these steps 
+
+
