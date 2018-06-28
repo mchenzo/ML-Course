@@ -13,8 +13,18 @@ import sklearn
 # Importing the dataset, use the tsv file because the delimiter is new line not comma
 dataset = pd.read_csv('/Users/michaelchen/Desktop/ML-Course/Part7-NLP/Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3)
 
-# Cleaning the texts
-
+# Cleaning the texts; removing numbers, punctuation, reducing different tenses to root word (loved --> love)
+import re
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
+review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][0])                             # replace all non-alpha w/ spaces
+review = review.lower()                                                             # reduce to lower case
+review = review.split()                                                             # split into words
+ps = PorterStemmer()
+review = [ps.stem(word) for word in review if not word in set(stopwords.words('english'))]   # include the word in review if it is not in the stopwords list
+review = ' '.join(review)
 
 # Creating the Bag of Words model
 

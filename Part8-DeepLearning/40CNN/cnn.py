@@ -3,6 +3,8 @@
 # Part 1 - Building the CNN
 
 # Importing the Keras libraries and packages
+import sys
+sys.path.append('/usr/local/lib/python3.6/site-packages')
 from keras.models import Sequential
 from keras.layers import Convolution2D # 2D to deal with images
 from keras.layers import MaxPooling2D
@@ -21,7 +23,8 @@ classifier.add(Convolution2D(32, 3, 3, input_shape = (64, 64, 3), activation = '
 classifier.add(MaxPooling2D(pool_size = (2, 2)))
 
 # Adding a second convolutional layer
-
+classifier.add(Convolution2D(32, 3, 3, activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
 
 # Step 3 - Flattening, all feature maps converted into single vector
 # each element becomes an input node of ANN
